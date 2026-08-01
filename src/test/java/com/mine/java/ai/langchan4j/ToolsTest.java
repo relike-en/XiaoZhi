@@ -1,11 +1,12 @@
-package com.atguigu.java.ai.langchain4j;
+package com.mine.java.ai.langchan4j;
 
-import com.atguigu.java.ai.langchain4j.assistant.SeparateChatAssistant;
+import com.mine.java.ai.langchain4j.XiaozhiApp;
+import com.mine.java.ai.langchain4j.assitant.SeparateChatAssistant;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(classes = XiaozhiApp.class)
 public class ToolsTest {
     @Autowired
     private SeparateChatAssistant separateChatAssistant;

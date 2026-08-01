@@ -1,2 +1,24 @@
-package com.mine.java.ai.langchain4j.assitant;public interface XiaozhiAgent {
+package com.mine.java.ai.langchain4j.assitant;
+
+import dev.langchain4j.service.MemoryId;
+import dev.langchain4j.service.SystemMessage;
+import dev.langchain4j.service.UserMessage;
+import dev.langchain4j.service.spring.AiService;
+import reactor.core.publisher.Flux;
+
+import static dev.langchain4j.service.spring.AiServiceWiringMode.EXPLICIT;
+
+@AiService(
+        wiringMode = EXPLICIT,
+        chatMemoryProvider = "chatMemoryProviderXiaozhi",
+    //    chatModel = "qwenChatModel",
+        streamingChatModel = "qwenStreamingChatModel",
+        tools = "appointmentTools",
+        contentRetriever = "contentRetrieverXiaozhiPincone"
+)
+public interface XiaozhiAgent {
+
+    @SystemMessage(fromResource = "xhaozhi-prompt-template.txt")
+    Flux<String> chat(@MemoryId Long memoryId, @UserMessage String userMessage);
+
 }

@@ -1,2 +1,9 @@
-package com.mine.java.ai.langchain4j.assitant;public interface Assistant {
+package com.mine.java.ai.langchain4j.assitant;
+
+import dev.langchain4j.service.spring.AiService;
+import dev.langchain4j.service.spring.AiServiceWiringMode;
+
+@AiService(wiringMode = AiServiceWiringMode.EXPLICIT,chatModel = "qwenChatModel")
+public interface Assistant {
+    String chat(String userMessage);
 }
